@@ -1,8 +1,9 @@
 import React from 'react';
+import '../index.css';
 
 const Header = () => {
     return (
-        <div>
+        <div className='titleLayout'>
             <h1>Note App</h1>
         </div>
     );

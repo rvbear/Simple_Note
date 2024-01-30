@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../index.css';
 
 const NoteAdd = ({ onAddNote, onCancel, initialNote }) => {
     const [title, setTitle] = useState('');
@@ -26,32 +27,29 @@ const NoteAdd = ({ onAddNote, onCancel, initialNote }) => {
 
     return (
         <div>
-            <h1>{initialNote ? '노트 수정' : '노트 추가'}</h1>
-            <div>
-                <label>제목:</label>
+            <div className='secondLayout'>
                 <input
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    placeholder="제목을 입력해주세요"
                 />
-            </div>
-            <div>
-                <label>내용:</label>
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
+                    placeholder="내용을 입력해주세요"
                 />
-            </div>
-            <div>
-                <label>기분:</label>
                 <input
                     type="text"
                     value={mood}
                     onChange={(e) => setMood(e.target.value)}
+                    placeholder="기분을 입력해주세요"
                 />
             </div>
-            <button onClick={handleAddNote}>{initialNote ? '노트 수정' : '노트 추가'}</button>
-            <button onClick={onCancel}>취소</button>
+            <div className='addbuttonLayout'>
+                <button className='longButton' onClick={handleAddNote}>{initialNote ? '노트 수정' : '노트 추가'}</button>
+                <button className='shortButton' onClick={onCancel}>취소</button>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Title from '../components/Title';
 import NoteAdd from './NoteAdd';
+import '../index.css';
 
 const NoteMain = () => {
     const [notes, setNotes] = useState([]);
@@ -32,8 +33,9 @@ const NoteMain = () => {
     };
 
     return (
-        <div>
+        <div className='mainLayout'>
             <Title />
+            <hr></hr>
             {addingNote ? (
                 <NoteAdd
                     onAddNote={(note) => {
@@ -49,19 +51,17 @@ const NoteMain = () => {
                     initialNote={editingNote}
                 />
             ) : (
-                <div>
-                    <ul>
-                        {notes.map((note, index) => (
-                            <li key={index} onClick={() => editNote(index)}>
-                                {note.title}{' '}
-                                <button onClick={(e) => { e.stopPropagation(); deleteNote(index); }}>
-                                    삭제
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                <div className='secondLayout'>
+                    {notes.map((note, index) => (
+                        <p key={index} onClick={() => editNote(index)}>
+                            {note.title}{' '}
+                            <button className='shortButton' onClick={(e) => { e.stopPropagation(); deleteNote(index); }}>
+                                삭제
+                            </button>
+                        </p>
+                    ))}
                     <div>
-                        <button onClick={handleAddNoteClick}>노트 추가</button>
+                        <button className='longButton' onClick={handleAddNoteClick}>노트 추가</button>
                     </div>
                 </div>
             )}
