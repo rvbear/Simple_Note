@@ -1,9 +1,10 @@
+import NoteMain from "./screens/NoteMain";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+      <div className="App">
+        <NoteMain/>
+      </div>
   );
 }
 
