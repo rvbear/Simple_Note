@@ -1,9 +1,11 @@
 import NoteMain from "./screens/NoteMain";
+import Title from './components/Title';
 
 function App() {
   return (
       <div className="App">
-        <NoteMain/>
+        <Title />
+        <NoteMain />
       </div>
   );
 }
